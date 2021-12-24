@@ -19,6 +19,7 @@ public class WebServer {
 
     private WebServer(final ActorSystem system) {
         storeActor = system.actorOf(Props.create(StoreActor.class), STORE_ACTOR);
+        testPackageActor = system.actorOf(Props.create(TestPackageActor.class), TEST_PACKAGE_ACTOR);
     }
 
 }

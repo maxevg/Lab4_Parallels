@@ -1,0 +1,2 @@
+public class TestPackageActor {
+}
