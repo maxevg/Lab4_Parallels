@@ -19,5 +19,5 @@ public class StoreMessage {
         this.test = test;
     }
 
-    
+
 }
