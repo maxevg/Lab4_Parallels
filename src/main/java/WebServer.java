@@ -1,3 +1,4 @@
+import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -11,6 +12,10 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
 import akka.stream.ActorMaterializer;
+import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Tcp;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -60,6 +65,17 @@ public class WebServer {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
+        WebServer instance = new WebServer(system);
+
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+                instance.createRoute().flow(system, materializer);
+        final CompletionStage<Tcp.ServerBinding> binding = http.bindAndHandle(
+                routeFlow,
+                ConnectHttp.toHost(SERVER, PORT),
+                materializer
+        );
+        System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
+        System.in.read();
         
     }
 
