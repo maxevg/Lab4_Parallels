@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -11,4 +12,12 @@ public class StoreMessage {
 
     @JsonProperty(TEST)
     private ArrayList<Test> test;
+
+    @JsonCreator
+    public StoreMessage(@JsonProperty(PACKAGE_ID) Integer packageId, @JsonProperty(TEST) ArrayList<Test> test) {
+        this.packageId = packageId;
+        this.test = test;
+    }
+
+    
 }
