@@ -1,6 +1,7 @@
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.http.javadsl.server.Route;
 import akka.routing.RoundRobinPool;
 
 public class WebServer {
@@ -24,6 +25,10 @@ public class WebServer {
         testPerformerActor = system.actorOf(new RoundRobinPool(NUMBER_OF_POOLS).props(Props.create(TestActor.class)), TEST_PERFORMER_ACTOR);
     }
 
-    
+    private Route createRoute() {
+        return route(
+                
+        )
+    }
 
 }
