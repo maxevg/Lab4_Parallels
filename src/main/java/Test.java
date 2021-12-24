@@ -40,4 +40,8 @@ public class Test {
     public String getTestName() {
         return this.testName;
     }
+
+    public String getExpectedResult() {
+        return this.expectedResult;
+    }
 }
