@@ -46,7 +46,7 @@ public class WebServer {
                             testPackageActor.tell(msg, ActorRef.noSender());
                             return complete("Test started!");
                         }))
-        )
+        );
     }
 
 }
