@@ -1,6 +1,7 @@
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.routing.RoundRobinPool;
 
 public class WebServer {
     private ActorRef storeActor;
@@ -20,6 +21,7 @@ public class WebServer {
     private WebServer(final ActorSystem system) {
         storeActor = system.actorOf(Props.create(StoreActor.class), STORE_ACTOR);
         testPackageActor = system.actorOf(Props.create(TestPackageActor.class), TEST_PACKAGE_ACTOR);
+        testPerformerActor = system.actorOf(new RoundRobinPool(NUMBER_OF_POOLS).props(Props.create(TestActor.class)), TEST_PERFORMER_ACTOR);
     }
 
 }
