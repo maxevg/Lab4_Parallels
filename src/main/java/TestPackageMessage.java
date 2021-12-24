@@ -29,4 +29,8 @@ public class TestPackageMessage {
         this.functionName = functionName;
         this.tests = tests;
     }
+
+    public Integer getPackageId() {
+        return this.packageId;
+    }
 }
