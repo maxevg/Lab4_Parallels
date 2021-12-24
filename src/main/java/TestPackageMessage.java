@@ -1,3 +1,8 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
+
 public class TestPackageMessage {
     private final String PACKAGE_ID = "packageId";
     private final String JS_SCRIPT = "jsScript";
@@ -8,8 +13,11 @@ public class TestPackageMessage {
     private Integer packageId;
 
     @JsonProperty(PACKAGE_ID)
-    private Integer packageId;
+    private String jsScript;
 
     @JsonProperty(PACKAGE_ID)
-    private Integer packageId;
+    private String functionName;
+
+    @JsonProperty(TESTS)
+    private ArrayList<Test> tests;
 }
