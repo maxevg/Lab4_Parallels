@@ -36,4 +36,8 @@ public class Test {
         this.params = params;
         this.result = result;
     }
+
+    public String getTestName() {
+        return this.testName;
+    }
 }
