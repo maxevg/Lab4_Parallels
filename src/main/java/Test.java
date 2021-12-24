@@ -44,4 +44,10 @@ public class Test {
     public String getExpectedResult() {
         return this.expectedResult;
     }
+
+    public ArrayList<Integer> getParams() {
+        return this.params;
+    }
+
+    
 }
