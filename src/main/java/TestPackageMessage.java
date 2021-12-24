@@ -41,4 +41,8 @@ public class TestPackageMessage {
     public String getFunctionName() {
         return this.functionName;
     }
+
+    public ArrayList<Test> getTests() {
+        return this.tests;
+    }
 }
