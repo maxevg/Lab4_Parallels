@@ -10,4 +10,20 @@ public class TestMessage {
         this.functionName = functionName;
         this.test = test;
     }
+
+    public Integer getPackageId() {
+        return packageId;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
+    public String getFunctionName() {
+        return this.functionName;
+    }
+
+    public Test getTest() {
+        return this.test;
+    }
 }
