@@ -2,7 +2,12 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.server.Route;
+import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
+
+import java.util.concurrent.CompletionStage;
+
+import static akka.http.javadsl.server.Directives.*;
 
 public class WebServer {
     private ActorRef storeActor;
@@ -27,7 +32,14 @@ public class WebServer {
 
     private Route createRoute() {
         return route(
-                
+                get(() ->
+                        parameter("packageId", (packageId) -> {
+                            CompletionStage<Object> result = PatternsCS.ask(
+                                    storeActor,
+                                    new GetMessage(Integer.parseInt(packageId)),
+                                    TIME_OUT_MILLIS);
+                            )
+                        }))
         )
     }
 
