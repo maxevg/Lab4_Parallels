@@ -1,4 +1,7 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 
 public class Test {
     private final String TEST_NAME = "testName";
@@ -17,4 +20,10 @@ public class Test {
 
     @JsonProperty(RESULT)
     private boolean result;
+
+    @JsonCreator
+    public Test(@JsonProperty(TEST_NAME) String testName, @JsonProperty(EXPECTED_RESULT) String expectedResult,
+                @JsonProperty(PARAMS) ArrayList<Integer> params) {
+        
+    }
 }
