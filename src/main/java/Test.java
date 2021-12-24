@@ -49,5 +49,7 @@ public class Test {
         return this.params;
     }
 
-    
+    public boolean getResult() {
+        return this.result;
+    }
 }
