@@ -14,4 +14,7 @@ public class Test {
 
     @JsonProperty(PARAMS)
     private ArrayList<Integer> params;
+
+    @JsonProperty(RESULT)
+    private boolean result;
 }
