@@ -16,8 +16,11 @@ public class StoreActor extends AbstractActor {
                         current_tests.addAll(m.getTest());
                         store.replace(m.getPackageId(), current_tests);
                     } else {
-                        store.put(m.)
+                        store.put(m.getPackageId(), m.getTest());
                     }
+                })
+                .match(GetMessage.class, req ->{
+
                 })
     }
 }
