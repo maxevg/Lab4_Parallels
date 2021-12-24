@@ -1,6 +1,7 @@
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.Route;
 import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
@@ -38,7 +39,12 @@ public class WebServer {
                                     storeActor,
                                     new GetMessage(Integer.parseInt(packageId)),
                                     TIME_OUT_MILLIS);
-                            )
+                            return completeOKWithFuture(result, Jackson.marshaller());
+                        })),
+                post(() ->
+                        entity(Jackson.unmarshaller(TestPackageMessage.class), msg -> {
+                            testPackageActor.tell(msg, ActorRef.noSender());
+                            return complete("Test started!");
                         }))
         )
     }
