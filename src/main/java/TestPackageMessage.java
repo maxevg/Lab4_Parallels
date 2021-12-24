@@ -20,4 +20,10 @@ public class TestPackageMessage {
 
     @JsonProperty(TESTS)
     private ArrayList<Test> tests;
+
+    @JsonCreator
+    TestPackageMessage(@JsonProperty(PACKAGE_ID) int packageId, @JsonProperty(JS_SCRIPT) String jsScript,
+                       @JsonProperty(FUNCTION_NAME) String functionName, @JsonProperty(TESTS) ArrayList<Test> tests) {
+        
+    }
 }
