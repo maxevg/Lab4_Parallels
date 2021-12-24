@@ -37,4 +37,8 @@ public class TestPackageMessage {
     public String getJsScript() {
         return this.jsScript;
     }
+
+    public String getFunctionName() {
+        return this.functionName;
+    }
 }
