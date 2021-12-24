@@ -77,6 +77,11 @@
             <artifactId>akka-http-xml_2.12</artifactId>
             <version>${akka-http.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.4</version>
+        </dependency>
 
 
     </dependencies>

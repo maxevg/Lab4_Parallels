@@ -6,6 +6,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
 
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
@@ -47,6 +48,11 @@ public class WebServer {
                             return complete("Test started!");
                         }))
         );
+    }
+
+    public static void main(String[] args) throws IOException {
+        ActorSystem system = ActorSystem.create("routes");
+        final Http http = Http.get(system);
     }
 
 }
