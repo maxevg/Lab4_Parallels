@@ -33,4 +33,8 @@ public class TestPackageMessage {
     public Integer getPackageId() {
         return this.packageId;
     }
+
+    public String getJsScript() {
+        return this.jsScript;
+    }
 }
