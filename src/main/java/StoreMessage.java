@@ -19,5 +19,11 @@ public class StoreMessage {
         this.test = test;
     }
 
+    public Integer getPackageId() {
+        return this.packageId;
+    }
 
+    public ArrayList<Test> getTest() {
+        return this.test;
+    }
 }
