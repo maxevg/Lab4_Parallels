@@ -7,6 +7,11 @@ public class TestPackageActor extends AbstractActor {
 
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(TestPackageMessage.class, )
+                .match(TestPackageMessage.class, m -> {
+                    for (Test test: m.getTests()) {
+                        testPerformerRouter
+                                .tell(new TestMessage)
+                    }
+                })
     }
 }
