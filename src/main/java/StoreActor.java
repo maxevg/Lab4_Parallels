@@ -10,6 +10,14 @@ public class StoreActor extends AbstractActor {
 
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match()
+                .match(StoreMessage.class, m -> {
+                    if (store.containsKey(m.getPackageId())) {
+                        ArrayList<Test> current_tests = store.get(m.getPackageId());
+                        current_tests.addAll(m.getTest());
+                        store.replace(m.getPackageId(), current_tests);
+                    } else {
+                        store.put(m.)
+                    }
+                })
     }
 }
