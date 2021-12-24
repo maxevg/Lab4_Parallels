@@ -30,5 +30,7 @@ public class Test {
         this.result = false;
     }
 
-    public Test
+    public Test(String testName, String expectedResult, ArrayList<Integer> params, boolean result){
+        
+    }
 }
