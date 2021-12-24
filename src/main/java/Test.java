@@ -8,4 +8,10 @@ public class Test {
 
     @JsonProperty(TEST_NAME)
     private String testName;
+
+    @JsonProperty(EXPECTED_RESULT)
+    private String expectedResult;
+
+    @JsonProperty(PARAMS)
+    private ArrayList<Integer> params;
 }
