@@ -1,2 +1,2 @@
-public class TestMessa {
+public class TestMessage {
 }
