@@ -12,7 +12,7 @@ public class WebServer {
     private static final Integer TIME_OUT_MILLIS = 5000;
 
     private WebServer(final ActorSystem system) {
-        storeActor = system.actorOf(Props.create(StoreActor.class) STORE_ACTOR)
+        storeActor = system.actorOf(Props.create(StoreActor.class), STORE_ACTOR);
     }
 
 }
