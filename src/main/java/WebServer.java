@@ -13,9 +13,6 @@ import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
-import akka.stream.javadsl.Tcp;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -69,7 +66,7 @@ public class WebServer {
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute().flow(system, materializer);
-        final CompletionStage<Tcp.ServerBinding> binding = http.bindAndHandle(
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost(SERVER, PORT),
                 materializer
@@ -77,7 +74,7 @@ public class WebServer {
         System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
         System.in.read();
         binding
-                .thenCompose(Tcp.ServerBinding::unbind)
+                .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
     }
 
