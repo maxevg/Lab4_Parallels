@@ -12,10 +12,10 @@ public class TestPackageMessage {
     @JsonProperty(PACKAGE_ID)
     private Integer packageId;
 
-    @JsonProperty(PACKAGE_ID)
+    @JsonProperty(JS_SCRIPT)
     private String jsScript;
 
-    @JsonProperty(PACKAGE_ID)
+    @JsonProperty(FUNCTION_NAME)
     private String functionName;
 
     @JsonProperty(TESTS)
